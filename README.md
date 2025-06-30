@@ -1,1 +1,1 @@
-# aplicaciones-en-sistemas-de-recomendaci-n-e-im-genes
+# aplicaciones-en-sistemas-de-recomendacion-e-imagenes
