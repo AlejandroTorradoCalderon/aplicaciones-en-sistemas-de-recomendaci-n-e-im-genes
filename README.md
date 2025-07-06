@@ -27,6 +27,7 @@ models/
 ├── clasificación de conducción distractiva/
 │   └── img_behaviorclassifier.ipynb
 ├── predicción de demanda de transporte/
-│   └── predicción_demanda_transporte.ipynb
+│   └── Modulo1.ipynb
+    └── modelo_multiruta_lstm.pt
 └── sistema de recomendación de viajes/
     └── sistema_de_recomendación_de_viajes.ipynb
