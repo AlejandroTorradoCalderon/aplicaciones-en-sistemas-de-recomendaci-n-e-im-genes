@@ -77,7 +77,7 @@ def load_image_model():
     # Solo construir (esto se cachea)
     model = build_image_model()
     # La carga se hace fuera del cache
-    state_dict = torch.load("best_model.pth", map_location=device, weights_only=False)
+    state_dict = torch.load('best_model_v2.pth', map_location=device)
     model.load_state_dict(state_dict)
     model.to(device)
     model.eval()
