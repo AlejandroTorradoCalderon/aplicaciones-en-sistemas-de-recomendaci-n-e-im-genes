@@ -78,7 +78,7 @@ def load_image_model():
     state_dict = torch.load(
         "best_model_v2.pth",
         map_location=device,
-        weights_only=True  # es seguro
+        weights_only=False  
     )
     model.load_state_dict(state_dict)
     model.to(device)
