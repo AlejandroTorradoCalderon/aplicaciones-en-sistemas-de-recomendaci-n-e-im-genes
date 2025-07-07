@@ -61,8 +61,7 @@ def load_encoders():
     scaler = joblib.load('scaler.pkl')
     return ohe, scaler
 
-@st.cache_resource
-def load_image_model():
+def build_image_model():
     model = models.resnet18(pretrained=False)
     num_ftrs = model.fc.in_features
     model.fc = nn.Sequential(
@@ -71,11 +70,19 @@ def load_image_model():
         nn.Dropout(0.3),
         nn.Linear(128, 5)
     )
+    return model
+
+@st.cache_resource
+def load_image_model():
+    # Solo construir (esto se cachea)
+    model = build_image_model()
+    # La carga se hace fuera del cache
     state_dict = torch.load('best_model.pth', map_location=device)
     model.load_state_dict(state_dict)
     model.to(device)
     model.eval()
     return model
+
 
 def predict_future(model, initial_seq, branch_ohe, scaler, n_steps=30):
     preds = []
